@@ -2,8 +2,8 @@
 # folder:backup\tests
 from pathlib import Path
 
-from backupp import adres_ile_yedekle_command
-from backupp.backup_with_path import child_directory
+
+from backupp.backup_with_path import child_directory ,adres_ile_yedekle_command
 
 # from backupp import *
 from backupp.file_classes import FileItem
