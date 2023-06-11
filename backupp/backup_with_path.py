@@ -75,9 +75,9 @@ def adres_ile_yedekle_command(source_folder_, dest_folder, force=False):
 def adres_ile_yedekle():
     """for the menu"""
     dest_folder: Path = get_default_backup_folder()
-    source_folder_ = input(
+    source_folder_ = get_input(
         r"Project address ? (Commit mesajı e.g.: "
-        r"folder1\folder|unit_test1)  or exit => "
+        r"folder1\folder|unit_test1)  or exit => " , default =False 
     )
     return adres_ile_yedekle_helper(source_folder_, dest_folder)
 

@@ -90,7 +90,7 @@ def get_checker():
     ignore_check = IgnoreCheckParseGitignore(matches_instance, ignore_file_name)
     return ignore_check
 
-
+from backupp.github_actions import get_input
 def asked_and_created(folder, force=False):
     msg = ".gitignore file could not be found. Should script create a template for you? y/n"
     create_git_ignore_file(folder)
@@ -98,7 +98,7 @@ def asked_and_created(folder, force=False):
     if force:
         create_git_ignore_file(folder)
         return True
-    ans = input(msg)
+    ans = get_input(msg , default = 'y')
     if ans.lower() != "n":
         create_git_ignore_file(folder)
         return True
