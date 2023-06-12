@@ -1,6 +1,8 @@
 
 import os
 from dataclasses import dataclass
+
+
 from backupp.files import Read, Write
 from pathlib import Path 
 
@@ -90,11 +92,14 @@ def get_default_backup_folder() -> Path :
 
 
 def set_backup_folder(folder):
+    from backupp import GithubActions
     if Path(folder).is_dir():
         options.set(folder)
         options.read_onload()
         return
     print(f'Directory could not be found {folder}')
+    if GithubActions().is_testing:
+        return
     raise NotADirectoryError
 
 

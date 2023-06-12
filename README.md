@@ -1,5 +1,5 @@
-[![Python package](https://github.com/SermetPekin/backup2/actions/workflows/python-package.yml/badge.svg)](https://github.com/SermetPekin/backup2/actions/workflows/python-package.yml)
 
+[![Python package](https://github.com/SermetPekin/backupp-rep/actions/workflows/python-package.yml/badge.svg)](https://github.com/SermetPekin/backupp-rep/actions/workflows/python-package.yml)
 
 ### backupp
 

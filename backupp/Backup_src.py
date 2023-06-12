@@ -1,18 +1,13 @@
-# filename:Backup_src.py
-# folder:backupp
-import os
-import shutil
+
+
 from os import listdir
 from os.path import isfile, join
 from datetime import date, datetime
-import sys
-from pathlib import Path
-from typing import List
+from typing import Tuple, List
+
 from .Backup_base import BackupClassBase
 from .copy_ops import Operation_sadece_guncelle, OperationKopyala
 from backupp.colors import * 
-
-
 from functools import wraps
 
 today = datetime.now()
@@ -47,7 +42,8 @@ def starts_with_underscore(full_path: Path):
 
 import os
 
-
+from dataclasses import field
+@dataclass
 class BackupClass(BackupClassBase):
     proje: DirectoryClass
     newDestinationFolderFinal: any
@@ -58,7 +54,7 @@ class BackupClass(BackupClassBase):
     dest_adres_full: Path
     onay: bool
     dest: Path
-
+    copiedFiles: List[FileItem] = field(default=list )
     def __init__(
         self,
         proje=None,
@@ -89,7 +85,7 @@ class BackupClass(BackupClassBase):
             self.create_directory(self.proje.destDir)
 
     def initials(self):
-        self.copiedFiles = []
+        self.copiedFiles :List[FileItem]= []
         self.onay = self.proje.onay
         self.root = self.proje.sourceDir
         self.dest = self.proje.destDir
@@ -137,14 +133,14 @@ class BackupClass(BackupClassBase):
                 )
                 raise NoInternetConnection
         self.dest = self.dest_adres_full
-        self.yedekle()
+        self.do_backup()
 
-    def create_directory(self, adres: Path) -> None:
-        if not Path(adres).exists():
+    def create_directory(self, address: Path) -> None:
+        if not Path(address).exists():
             print("*" * 50)
-            print_with_success_style(adres)
+            print_with_success_style(address)
             print("*" * 50)
-            os.makedirs(adres, exist_ok=True)
+            os.makedirs(address, exist_ok=True)
 
     def get_info(self):
 
@@ -161,7 +157,8 @@ class BackupClass(BackupClassBase):
         else:
             return False
 
-    def yedekle(self, source=None, onay: bool = True, *args, **kwargs):
+
+    def do_backup(self, source=None, onay: bool = True, *args, **kwargs):
         """yedekle"""
         self.onay = onay
         if not self.get_info():
@@ -287,8 +284,7 @@ def create_template_backup(self):
     def display(item: FileItem):
         return rf"{item.rel_folder}/{item.name}"
 
-    self.copiedFiles = tuple(map(display, self.copiedFiles))
-    files = "\n".join(self.copiedFiles)
+    files = "\n".join(tuple(map(display, self.copiedFiles)))
     template_ignore = self.proje.ignore_checker.get_content_setup_file()
     template = f"""
 Son yedekleme :
@@ -309,4 +305,4 @@ ___________________________________ gitignore template
 if "__main__" == __name__:
     backup = BackupClass()
     backup.set_destination(Path() / "test")
-    # backup.yedekle()
+    # backup.do_backup()
