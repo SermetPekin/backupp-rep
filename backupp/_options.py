@@ -84,6 +84,9 @@ options.read_onload()
 
 def get_default_backup_folder() -> Path :
     options = Options()
+    options.set_onload()
+    options.read_onload()
+
     return options.backup_folder 
 
 # options.set('/Users/sermetpekin/Desktop/denemey')
