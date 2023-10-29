@@ -9,6 +9,7 @@ import shutil
 from datetime import datetime
 import sys
 from typing import List
+import traceback
 
 today = datetime.now()
 from .Directory import *
@@ -35,8 +36,8 @@ class OperationKopyala_with_hash(OperationClass):
 class Operation_sadece_guncelle(OperationClass):
     def action(self, file_item: FileItem, copiedFiles: list):
         DEST_FOLDER = (
-            file_item.backupInstance.back_up_folder_name_no_date_static
-            / file_item.rel_folder
+                file_item.backupInstance.back_up_folder_name_no_date_static
+                / file_item.rel_folder
         )
         # source full
         file_SOURCE_full_name = file_item.source_full_path / file_item.name
@@ -44,11 +45,14 @@ class Operation_sadece_guncelle(OperationClass):
         file_DEST_full_name = DEST_FOLDER / file_item.name
         if file_SOURCE_full_name in copiedFiles:
             return
-        self.process(file_item, DEST_FOLDER, file_SOURCE_full_name, file_DEST_full_name)
-        # self.process_mock(file_item, DEST_FOLDER, file_SOURCE_full_name, file_DEST_full_name)
+        try:
+            self.process(file_item, DEST_FOLDER, file_SOURCE_full_name, file_DEST_full_name)
+            # self.process_mock(file_item, DEST_FOLDER, file_SOURCE_full_name, file_DEST_full_name)
+        except Exception as exc:
+            traceback.print_exc(exc)
 
     def process_mock(
-        self, file_item, DEST_FOLDER, file_SOURCE_full_name, file_DEST_full_name
+            self, file_item, DEST_FOLDER, file_SOURCE_full_name, file_DEST_full_name
     ):
         """MOCK"""
         # new dest dir create
@@ -68,7 +72,7 @@ dest_full_path (Currently Not Used):     {file_item.dest_full_path}
         # shutil.copyfile(file_SOURCE_full_name, file_DEST_full_name)
 
     def process(
-        self, file_item, DEST_FOLDER, file_SOURCE_full_name, file_DEST_full_name
+            self, file_item, DEST_FOLDER, file_SOURCE_full_name, file_DEST_full_name
     ):
         # new dest dir create
         file_item.backupInstance.create_directory(DEST_FOLDER)
