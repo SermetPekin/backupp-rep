@@ -1,9 +1,14 @@
 
+#filename:py_template.py
+#folder:backupp
 template_py = f"""#GlobalTemplateModified
 # Byte-compiled / optimized / DLL files
 __pycache__/
 Backup_history/
+.Rproj*/
+ignore/
 .git/
+.idea/
 *.py[cod]
 *$py.class
 Backup_history/
@@ -134,5 +139,4 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
-
 """

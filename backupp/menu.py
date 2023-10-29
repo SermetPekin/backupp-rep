@@ -1,3 +1,5 @@
+# filename:menu.py
+# folder:backupp
 """
 --------------------------------------
    Developer : Sermet Pekin
@@ -45,10 +47,19 @@ def loopProjects(array, onay_iste=False):
         print_done(backup)
 
 
-def detay_goster(items):
-    for item in items:
-        print(" . {}, ".format(item.name))
-    ans = get_input("continue to backup? ?(y/n)", default="y")
+def show_detail_and_confirm(projects : tuple[DirectoryClass]):
+    for project in projects:
+        print(" . {}  ".format(project.name))
+    msg = f"""
+   .................. Back Up Confirmation ....................... 
+   source      :  {project.sourceDir}
+   destination :  {project.destDir}
+   ...............................................................
+   gitignore file to be checked : root/ .gitignore
+   continue to backup? ?(y/n)
+   
+    """
+    ans = get_input(msg, default="y")
     if ans == "n" or ans == "N":
         return false
     return true
@@ -56,7 +67,7 @@ def detay_goster(items):
 
 def yedekle_this(projects):
     onay_iste = False
-    if not detay_goster(projects):
+    if not show_detail_and_confirm(projects):
         return
     loopProjects(projects, onay_iste)
 

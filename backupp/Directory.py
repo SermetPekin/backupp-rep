@@ -1,3 +1,6 @@
+
+#filename:Directory.py
+#folder:backupp
 """
 --------------------------------------
    Developer : Sermet Pekin
@@ -6,8 +9,6 @@
 --------------------------------------
 """
 from .file_checks import FileChecks_for_Matlab_Projects, FileChecks
-
-
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable
@@ -17,21 +18,16 @@ from .file_classes import *
 import json
 from .read_ignore import get_checker, IgnoreCheckParseGitignore, IgnoreCheck
 from .utils import *
-
 all_directories = []
 output_folder = r"out"
 # ignore_check = get_checker()
 from .read_ignore import get_checker_
-
-
 @dataclass
 class DirectoryClass_limited:
     name: str
     sourceDir: str
     destDir: str
     fileChecker: str
-
-
 @dataclass
 class DirectoryClass(object):
     sourceDir: Path
@@ -44,10 +40,8 @@ class DirectoryClass(object):
     onay: bool = True
     instances: list = field(default_factory=list)
     ignore_checker: IgnoreCheck = False
-
     def __post_init__(self):
         self.ignore_checker = get_checker_(self.sourceDir)
-
         # exit()
         # "\u005c" karakteri backslash Unicode
         Escaped_backslash = "\u005c"
@@ -58,18 +52,14 @@ class DirectoryClass(object):
         self.instances.append(self)
         all_directories.append(self)
         # print("inserted ::" + self.name)
-
     def get_all_instances(self):
         return self.instances
-
     @staticmethod
     def print_nicely(instances):
         for item in instances:
             print(item.sourceDir)
-
     def get_repr_json(self):
         item = self.name
-
     @staticmethod
     def yaz_json(instances):
         json_icerik = {}
@@ -80,7 +70,6 @@ class DirectoryClass(object):
         json_data = json_icerik
         with open(output_folder + r"\\data.json", "w", encoding="utf-8") as f:
             json.dump(json_data, f, ensure_ascii=False)
-
     @staticmethod
     def read_json():
         f = open(output_folder + r"\\" + "data.json", encoding="utf-8")
