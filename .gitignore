@@ -4,6 +4,8 @@
 backupp/options.cfg
 test1/
 test2/
+poetry.lock
+gitignore
 
 
 
