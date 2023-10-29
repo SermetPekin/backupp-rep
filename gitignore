@@ -19,6 +19,7 @@ __pycache__/
 __version__.py
 poetry.lock 
 
+.idea/
 
 # C extensions
 *.so
