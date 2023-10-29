@@ -7,6 +7,8 @@
 # ================================================================================
 # --------------------------------------------------------------------------------------
 # python3 setup.py bdist_wheel --universal
+# twine upload dist/* --cert C:\Python310\lib\site-packages\certifi\cacert.pem
+# import certifi;certifi.where()
 
 test_environment = r""
 cmd_file = "Run_Produced"

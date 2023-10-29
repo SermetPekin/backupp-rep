@@ -11,7 +11,7 @@ import sys
 """ Parameters for build and cmd file creator """
 from setup_config_pub import package_name
 
-root_version = "0.0.12"
+root_version = "0.0.16"
 project_urls = {
     "Homepage": f"https://github.com/SermetPekin/{package_name}-rep",
     "Documentation": f"https://github.com/SermetPekin/{package_name}-rep",
