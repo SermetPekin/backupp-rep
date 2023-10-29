@@ -7,7 +7,7 @@ test2/
 poetry.lock
 gitignore
 
-
+main.py
 
 
 __pycache__/
