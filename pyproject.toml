@@ -17,3 +17,7 @@ gitignore-parser = "^0.1.11"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.poetry.scripts]
+backupp = "backupp:console_main"
+
+

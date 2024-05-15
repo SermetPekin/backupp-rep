@@ -41,7 +41,6 @@ def loopProjects(array, onay_iste=False):
     for proje in array:
         backup = BackupClass(proje=proje)
         backup.do_backup(onay=onay_iste)
-        # print(backup.copiedFiles)
         print_done(backup)
 
 

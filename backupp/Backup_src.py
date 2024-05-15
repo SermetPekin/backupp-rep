@@ -3,7 +3,7 @@ from os.path import isfile, join
 from datetime import date, datetime
 from typing import Tuple, List
 from .Backup_base import BackupClassBase
-from .copy_ops import Operation_sadece_guncelle, OperationKopyala
+from .copy_ops import OperationBasic, OperationMock
 from backupp.colors import *
 from functools import wraps
 
@@ -15,9 +15,6 @@ from backupp.github_actions import *
 
 class NoInternetConnection(BaseException):
     """NoInternetConnection"""
-
-
-############################## main ##########################
 
 
 def go_back_for_R_Projects(full_path: Path):
@@ -56,28 +53,31 @@ class BackupClass(BackupClassBase):
     onay: bool
     dest: Path
     copiedFiles: List[FileItem] = field(default=list)
+    debug: bool = False
 
     def __init__(
         self,
         proje=None,
-        kopyala=False,
-        createFolder=False,
-        deepCopy=False,
-        fileChecker=None,
-        sadeceGuncelle=True,
+        kopyala: bool = False,
+        createFolder: bool = False,
+        deepCopy: bool = False,
+        fileChecker: type = None,
+        debug: bool = False,
         *args,
         **kw,
     ):
+        self.debug = debug
         self.proje = proje
         self.newDestinationFolderFinal = False
         self.fileChecker = self.proje.fileChecker
         self.kopyala = kopyala
         self.kw = kw
         self.args = args
-        if sadeceGuncelle:
-            self.operation = Operation_sadece_guncelle()
-        else:
-            self.operation = OperationKopyala()
+        # action
+        self.operation = OperationBasic()
+        if debug:
+            self.operation = OperationMock()
+
         self.initials()
         ##
         self.proje.ignore_checker.check_ignore_file()
@@ -96,7 +96,6 @@ class BackupClass(BackupClassBase):
     def name_format(self, folder_name: Path) -> Path:
         f = folder_name
         if self.kopyala:
-            # f = folder_name
             raise NotImplementedError
         else:
             today = datetime.now()
@@ -268,12 +267,20 @@ class BackupClass(BackupClassBase):
                 self.search_recursively(adres / folder)
 
     def getFileNames(self, adres: str) -> list:
-        onlyfiles = [f for f in listdir(adres) if isfile(join(adres, f))]
-        # print(onlyfiles)
+        onlyfiles = []
+        try:
+            onlyfiles = [f for f in listdir(adres) if isfile(join(adres, f))]
+        except:
+            pass
         return onlyfiles
 
     def getFolderNames(self, adres: Path) -> list:
-        folders = [f for f in listdir(adres) if not isfile(join(adres, f))]
+        folders = []
+        try:
+            folders = [f for f in listdir(adres) if not isfile(join(adres, f))]
+        except:
+            pass
+
         return folders
 
 

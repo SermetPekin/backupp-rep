@@ -5,6 +5,7 @@
     @ 2022 January
 --------------------------------------
 """
+
 import shutil
 from datetime import datetime
 import sys
@@ -25,19 +26,20 @@ class OperationClass(ABC):
         """action"""
 
 
-class OperationKopyala(OperationClass):
-    """OperationKopyala"""
+class OperationMock(OperationClass):
+    """OperationMock"""
+
+    @abstractmethod
+    def action(self, file_item: FileItem, copiedFiles: List[FileItem]):
+        """action"""
+        print(file_item.name, " .. not copied just checking ..")
 
 
-class OperationKopyala_with_hash(OperationClass):
-    """OperationKopyala_with_hash"""
-
-
-class Operation_sadece_guncelle(OperationClass):
+class OperationBasic(OperationClass):
     def action(self, file_item: FileItem, copiedFiles: list):
         DEST_FOLDER = (
-                file_item.backupInstance.back_up_folder_name_no_date_static
-                / file_item.rel_folder
+            file_item.backupInstance.back_up_folder_name_no_date_static
+            / file_item.rel_folder
         )
         # source full
         file_SOURCE_full_name = file_item.source_full_path / file_item.name
@@ -46,13 +48,15 @@ class Operation_sadece_guncelle(OperationClass):
         if file_SOURCE_full_name in copiedFiles:
             return
         try:
-            self.process(file_item, DEST_FOLDER, file_SOURCE_full_name, file_DEST_full_name)
+            self.process(
+                file_item, DEST_FOLDER, file_SOURCE_full_name, file_DEST_full_name
+            )
             # self.process_mock(file_item, DEST_FOLDER, file_SOURCE_full_name, file_DEST_full_name)
         except Exception as exc:
             traceback.print_exc(exc)
 
     def process_mock(
-            self, file_item, DEST_FOLDER, file_SOURCE_full_name, file_DEST_full_name
+        self, file_item, DEST_FOLDER, file_SOURCE_full_name, file_DEST_full_name
     ):
         """MOCK"""
         # new dest dir create
@@ -67,12 +71,9 @@ dest_full_path (Currently Not Used):     {file_item.dest_full_path}
 ============================================================    
         """
         )
-        # file_item.backupInstance.create_directory(DEST_FOLDER)
-        # copy
-        # shutil.copyfile(file_SOURCE_full_name, file_DEST_full_name)
 
     def process(
-            self, file_item, DEST_FOLDER, file_SOURCE_full_name, file_DEST_full_name
+        self, file_item, DEST_FOLDER, file_SOURCE_full_name, file_DEST_full_name
     ):
         # new dest dir create
         file_item.backupInstance.create_directory(DEST_FOLDER)

@@ -8,13 +8,15 @@ from datetime import date, datetime
 import sys
 from pathlib import Path
 from typing import List
-from .copy_ops import Operation_sadece_guncelle, OperationKopyala
+from .copy_ops import  OperationBasic , OperationMock 
 sys.path.append(".")
 sys.path.append("..")
 from functools import wraps
 today = datetime.now()
 from .Directory import *
 from .type_defs import *
+
+
 @dataclass
 class BackupClassBase(ABC):  # ***************************
     proje: DirectoryClass
