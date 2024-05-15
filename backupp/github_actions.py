@@ -1,6 +1,4 @@
 
-#filename:github_actions.py
-#folder:backupp
 """
 --------------------------------------
    Developer : Sermet Pekin

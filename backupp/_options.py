@@ -1,12 +1,12 @@
 
-#filename:_options.py
-#folder:backupp
+
 import os
 from dataclasses import dataclass
 from backupp.files import Read, Write
 from pathlib import Path
 class OptionsCouldNotRead(BaseException):
     """OptionsCouldNotRead"""
+
 @dataclass
 class Options:
     backup_folder: Path = Path().resolve().parent / "backup_default"
@@ -72,8 +72,7 @@ def get_options()->Options :
 def get_default_backup_folder() -> Path :
     options = get_options()
     return options.backup_folder
-# options.set('/Users/sermetpekin/Desktop/denemey')
-# print(options)
+
 def set_backup_folder(folder):
     from backupp import GithubActions
     options = get_options()
@@ -88,6 +87,3 @@ def set_backup_folder(folder):
 def display_options():
     options =get_options()
     print(options)
-# test_backup_folder = "/Users/sermetpekin/Desktop/denemey"
-# # set_backup_folder('xyz')
-# set_backup_folder(test_backup_folder)

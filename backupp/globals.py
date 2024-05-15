@@ -1,6 +1,5 @@
 
-#filename:globals.py
-#folder:backupp
+
 """
 --------------------------------------
    Developer : Sermet Pekin

@@ -1,6 +1,4 @@
 
-#filename:file_classes.py
-#folder:backupp
 """
 --------------------------------------
    Developer : Sermet Pekin

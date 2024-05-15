@@ -1,6 +1,4 @@
 
-#filename:onload_parser.py
-#folder:backupp
 """
 --------------------------------------
    Developer : Sermet Pekin

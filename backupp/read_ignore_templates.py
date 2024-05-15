@@ -1,6 +1,6 @@
 
-#filename:read_ignore_templates.py
-#folder:backupp
+
+
 """
 --------------------------------------
    Developer : Sermet Pekin

@@ -1,8 +1,4 @@
 
-#filename:colors.py
-#folder:backupp
-#filename:colors.py
-#folder:backup
 import functools
 import random
 from rich.console import Console

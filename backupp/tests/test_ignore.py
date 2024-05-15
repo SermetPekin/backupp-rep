@@ -2,7 +2,7 @@
 
 from pathlib import Path
 from backupp.backup_with_path import child_directory ,adres_ile_yedekle_command
-# from backupp import *
+
 from backupp.file_classes import FileItem
 from backupp.file_checks import FileChecks
 from backupp.read_ignore import get_checker, get_checker_
@@ -60,9 +60,3 @@ def test_write_check_ignore_file(capsys):
     c = get_checker_(some_folder_for_test)
     with capsys.disabled():
         create_git_ignore_file(Path(some_folder_for_test))
-# def test_backup_complete2(capsys):
-#     with capsys.disabled():
-#         adres_ile_yedekle_command(str('/Users/sermetpekin/Desktop/single') , '/Users/sermetpekin/Desktop/deneme123456789', force=True)
-# def create_some_dirs():
-#     folder = '/Users/sermetpekin/Desktop/deneme123456789/t1'
-#     create_dirs(folder)
