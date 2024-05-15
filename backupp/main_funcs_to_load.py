@@ -10,7 +10,6 @@ import sys
 from pathlib import Path
 from backupp.github_actions import GithubActions
 from backupp.onload_parser import get_parameters_from_console
-# from backupp.onload_parser import main_parser
 from backupp.template_on_load import create_git_ignore_file_onload
 from backupp._options import set_backup_folder, display_options
 
