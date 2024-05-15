@@ -66,9 +66,6 @@ setup(
     ],
     install_requires=[
         "rich>=12.5.1",
-        "pandas>=0.19.2",
-        "openpyxl>=3.0.10",
-        "numpy>=1.5.0",
         "gitignore_parser>=0.0.16",
     ],
     exclude_package_data={},
