@@ -1,13 +1,7 @@
 #GlobalTemplateModified
 # Byte-compiled / optimized / DLL files
 
-backupp/options.cfg
-test1/
-test2/
-poetry.lock
-gitignore
 
-main.py
 
 
 __pycache__/
@@ -149,3 +143,10 @@ cython_debug/
 .DS_Store
 .DS_Store
 .DS_Store
+backupp/options.cfg
+test1/
+test2/
+poetry.lock
+gitignore
+
+main.py
