@@ -1,5 +1,4 @@
-# filename:main_funcs_to_load.py
-# folder:backupp
+
 """
 --------------------------------------
    Developer : Sermet Pekin

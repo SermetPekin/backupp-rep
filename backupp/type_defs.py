@@ -1,6 +1,4 @@
 
-#filename:type_defs.py
-#folder:backupp
 """
 --------------------------------------
    Developer : Sermet Pekin

@@ -1,6 +1,4 @@
 
-#filename:template_on_load.py
-#folder:backupp
 """
 --------------------------------------
    Developer : Sermet Pekin

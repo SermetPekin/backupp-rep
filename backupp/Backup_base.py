@@ -1,6 +1,5 @@
 
-#filename:Backup_base.py
-#folder:backupp
+
 import os
 import shutil
 from os import listdir

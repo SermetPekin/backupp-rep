@@ -1,6 +1,5 @@
 
-#filename:read_ignore_helpers.py
-#folder:backupp
+
 """
 --------------------------------------
    Developer : Sermet Pekin

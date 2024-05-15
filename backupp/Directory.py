@@ -1,6 +1,5 @@
 
-#filename:Directory.py
-#folder:backupp
+
 """
 --------------------------------------
    Developer : Sermet Pekin

@@ -1,6 +1,5 @@
 
-#filename:_options.py
-#folder:backupp
+
 import os
 from dataclasses import dataclass
 from backupp.files import Read, Write

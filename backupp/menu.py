@@ -1,5 +1,4 @@
-# filename:menu.py
-# folder:backupp
+
 """
 --------------------------------------
    Developer : Sermet Pekin

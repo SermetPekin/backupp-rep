@@ -1,6 +1,4 @@
 
-#filename:Backup_src.py
-#folder:backupp
 from os import listdir
 from os.path import isfile, join
 from datetime import date, datetime
