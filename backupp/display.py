@@ -1,6 +1,5 @@
 
-#filename:display.py
-#folder:backupp
+
 """
 --------------------------------------
    Developer : Sermet Pekin

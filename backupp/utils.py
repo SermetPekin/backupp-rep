@@ -1,6 +1,4 @@
 
-#filename:utils.py
-#folder:backupp
 """
 --------------------------------------
    Developer : Sermet Pekin

@@ -1,5 +1,4 @@
-# filename:menu.py
-# folder:backupp
+
 """
 --------------------------------------
    Developer : Sermet Pekin
@@ -39,11 +38,9 @@ def print_done(backup: BackupClass):
 
 
 def loopProjects(array, onay_iste=False):
-    # onay_iste = False
     for proje in array:
         backup = BackupClass(proje=proje)
         backup.do_backup(onay=onay_iste)
-        # print(backup.copiedFiles)
         print_done(backup)
 
 

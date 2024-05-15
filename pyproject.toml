@@ -1,15 +1,23 @@
 [tool.poetry]
-name = "backupp-repo"
-version = "0.1.0"
-description = "backups your folder to your preferred local or network location using gitignore template rules"
+name = "backupp"
+version = "0.0.17"
+description = "Back ups your folder to your preferred local or network destination reading or creating a gitignore file."
 authors = ["Sermet Pekin <sermet.pekin@gmail.com>"]
+license = "MIT"
 readme = "README.md"
-packages = [{include = "backupp_repo"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+rich = "^13.7.1"
+gitignore-parser = "^0.1.11"
+
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+backupp = "backupp:console_main"
+
+

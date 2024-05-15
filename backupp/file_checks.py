@@ -1,6 +1,5 @@
 
-#filename:file_checks.py
-#folder:backupp
+
 """
 --------------------------------------
    Developer : Sermet Pekin

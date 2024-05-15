@@ -1,10 +1,4 @@
-# filename:backup_with_path.py
-# folder:backupp
-#
-# from pathlib import Path
-# from .files import create_folder
-#
-# from backupp._options import get_default_backup_folder
+
 from backupp.github_actions import get_input
 from .Directory import *
 from .file_classes import *
@@ -86,7 +80,7 @@ def adres_ile_yedekle_helper(source_folder_, dest_folder, commit=False):
     source_folder_, commit = get_commit_from_source(source_folder_)
     if not source_folder_.is_dir():
         print("Directory error type exit to exit")
-        return NotADirectoryError  # adres_ile_yedekle()
+        return NotADirectoryError  
     if child_directory(source_folder_, dest_folder):
         raise ChildDirectoyCannotBeBackupAddress
 

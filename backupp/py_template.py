@@ -1,6 +1,5 @@
 
-#filename:py_template.py
-#folder:backupp
+
 template_py = f"""#GlobalTemplateModified
 # Byte-compiled / optimized / DLL files
 __pycache__/
