@@ -51,7 +51,7 @@ class OperationBasic(OperationClass):
             self.process(
                 file_item, DEST_FOLDER, file_SOURCE_full_name, file_DEST_full_name
             )
-            # self.process_mock(file_item, DEST_FOLDER, file_SOURCE_full_name, file_DEST_full_name)
+
         except Exception as exc:
             traceback.print_exc(exc)
 
@@ -59,7 +59,7 @@ class OperationBasic(OperationClass):
         self, file_item, DEST_FOLDER, file_SOURCE_full_name, file_DEST_full_name
     ):
         """MOCK"""
-        # new dest dir create
+
         print(
             f"""
 ============================================================        
@@ -75,7 +75,7 @@ dest_full_path (Currently Not Used):     {file_item.dest_full_path}
     def process(
         self, file_item, DEST_FOLDER, file_SOURCE_full_name, file_DEST_full_name
     ):
-        # new dest dir create
+
         file_item.backupInstance.create_directory(DEST_FOLDER)
         # copy
         shutil.copyfile(file_SOURCE_full_name, file_DEST_full_name)
