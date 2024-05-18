@@ -84,7 +84,7 @@ def adres_ile_yedekle_helper(source_folder_, dest_folder, commit=False):
     if child_directory(source_folder_, dest_folder):
         raise ChildDirectoyCannotBeBackupAddress
 
-    # YEDEKLE
+
     dynamic_project_yedekle(source_folder_, dest_folder, commit)
 
 

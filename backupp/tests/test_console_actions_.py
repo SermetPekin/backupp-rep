@@ -9,6 +9,17 @@ from backupp.file_checks import FileChecks
 from backupp.read_ignore import get_checker, get_checker_
 from backupp.read_ignore_helpers import create_git_ignore_file
 
+from backupp import *
+from backupp import BackupClass
+from pathlib import Path
+from backupp.Directory import DirectoryClass
+import random
+import time
+import tempfile
+from backupp._options import get_options, Options, set_backup_folder
+
+
+
 backup_folder = Path()
 some_folder_for_test = Path() / "test1"
 BACKUP_FOLDER = Path() / "test2"
@@ -82,8 +93,6 @@ def test_child_directory(capsys):
         assert all(_)
 
 
-from backupp._options import get_options, Options, set_backup_folder
-
 
 def test_setoptions(capsys):
     with capsys.disabled():
@@ -121,13 +130,6 @@ def test_get_commit_from_source(capsys):
         print("*" * 50)
 
 
-from backupp import *
-from backupp import BackupClass
-from pathlib import Path
-from backupp.Directory import DirectoryClass
-
-import tempfile
-
 
 def test_copy(capsys):
     with tempfile.TemporaryDirectory() as dir:
@@ -138,3 +140,44 @@ def test_copy(capsys):
             backup = BackupClass(project)
             backup.do_backup()
 
+
+
+
+
+def produce_some_files(folder: Path):
+    def produce(name):
+        with open(Path(folder) / name, mode="w+") as file:
+            file.write("..")
+            print("[created]", Path(folder) / name)
+
+    def get_file_names():
+        names = []
+        exts = (
+            "cpp",
+            "h",
+            "py",
+            "css",
+        )
+        for _ in range(10):
+            name = get_random_hash(5)
+            ext: str = random.choice(exts)
+            file_name = f"{name}.{ext}"
+            names.append(file_name)
+        return names
+
+    _ = tuple(map(produce, get_file_names()))
+    print(_, "created [.....]")
+
+    return True
+
+
+
+def test_copy(capsys):
+    with tempfile.TemporaryDirectory() as source:
+        with tempfile.TemporaryDirectory() as dest:
+
+            project = DirectoryClass(Path(source), Path(dest))
+            with capsys.disabled():
+                produce_some_files(source)
+                backup = BackupClass(project)
+                backup.do_backup()

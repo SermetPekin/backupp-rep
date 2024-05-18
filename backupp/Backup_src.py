@@ -133,7 +133,7 @@ class BackupClass(BackupClassBase):
             tarih_name = TarihTemizle(str(today))
             self.back_up_folder_name_no_date = Path() / folder_name
             self.back_up_folder_name_no_date_static = (
-                self.back_up_folder_name_no_date / "static"
+                self.back_up_folder_name_no_date    # "static"
             )
             self.back_up_folder_name_full = f = os.path.join(folder_name, tarih_name)
             self.back_up_folder_name = tarih_name
