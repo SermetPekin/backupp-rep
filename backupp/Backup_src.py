@@ -81,8 +81,38 @@ class BackupClass(BackupClassBase):
         self.initials()
         ##
         self.proje.ignore_checker.check_ignore_file()
+
+        self.path_check(self.root, self.proje.destDir)
         if createFolder:
             self.create_directory(self.proje.destDir)
+    @staticmethod
+    def path_check( path_a: Path, path_b: Path):
+        path_a = Path(path_a)
+        path_b = Path(path_b)
+        def is_child():
+            try:
+                path_ax = path_a.resolve()
+                path_bx = path_b.resolve()
+
+                path_ax.relative_to(path_bx)
+                return True
+            except ValueError:
+                return False
+
+        if is_child():
+            template = f"""
+            [Path error] destination cannot be child of the source folder 
+            --------------------
+            source : {path_a} 
+            dest : {path_b }
+
+
+            """
+            print(template)
+            import time
+
+            time.sleep(3)
+            raise NotADirectoryError(template)
 
     def initials(self):
         self.copiedFiles: List[FileItem] = []
@@ -231,11 +261,14 @@ class BackupClass(BackupClassBase):
         if self.check_if_ignore_necessary(file_item):
             return
         try:
-            self.operation.action(file_item=file_item, copiedFiles=self.copiedFiles)
-            self.copiedFiles.append(file_item)
-        except Exception as exc:
-            print(file_item)
-            traceback.print_exc()
+            try:
+                self.operation.action(file_item=file_item, copiedFiles=self.copiedFiles)
+                self.copiedFiles.append(file_item)
+            except Exception as exc:
+                print(file_item)
+                traceback.print_exc()
+        except:
+            pass
 
     def check_if_ignore_nec_folder(self, folder: Path) -> bool:
         """check_if_ignore_nec_folder"""

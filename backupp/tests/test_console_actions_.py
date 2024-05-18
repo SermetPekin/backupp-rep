@@ -132,8 +132,33 @@ import tempfile
 def test_copy(capsys):
     with tempfile.TemporaryDirectory() as dir:
         dir = Path(dir)
-        project = DirectoryClass(Path('.') ,  dir)
+        project = DirectoryClass(Path("."), dir)
         with capsys.disabled():
 
             backup = BackupClass(project)
             backup.do_backup()
+
+
+def get_project_for_test():
+    dir = tempfile.TemporaryDirectory()
+    dir = Path(str(dir))
+    return DirectoryClass( dir , get_dest_for_test())
+
+
+def test_get_project_for_test(capsys):
+    with capsys.disabled():
+        a = get_project_for_test()
+        print(a)
+
+
+def get_dest_for_test():
+    dir = tempfile.TemporaryDirectory()
+    dir = Path(str(dir))
+    return dir 
+
+def test_copy2(capsys):
+
+    with capsys.disabled():
+        project = get_project_for_test()
+        backup = BackupClass(project)
+        backup.do_backup()
