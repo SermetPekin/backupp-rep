@@ -7,7 +7,6 @@ from .copy_ops import OperationBasic, OperationMock
 from backupp.colors import *
 from functools import wraps
 
-today = datetime.now()
 from .Directory import *
 from .type_defs import *
 from backupp.github_actions import *
@@ -15,6 +14,7 @@ from backupp.github_actions import *
 
 class NoInternetConnection(BaseException):
     """NoInternetConnection"""
+
 
 
 def go_back_for_R_Projects(full_path: Path):
@@ -128,6 +128,7 @@ class BackupClass(BackupClassBase):
         if self.kopyala:
             raise NotImplementedError
         else:
+
             today = datetime.now()
             tarih_name = TarihTemizle(str(today))
             self.back_up_folder_name_no_date = Path() / folder_name

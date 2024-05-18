@@ -72,11 +72,3 @@ To display your current backup configuration and preferences:
 backupp --check
 ```
 
-## Backup with Commit
-
-This feature allows you to emulate a Git-like commit operation, where each backup is treated as a "commit":
-
-```bash
-# Backup with a commit message, creating a directory named after the commit message
-backupp /path/to/source_folder_commit_ThisIsACommitMessage
-```
