@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "backupp"
-version = "0.0.17"
+version = "0.0.18"
 description = "Back ups your folder to your preferred local or network destination reading or creating a gitignore file."
 authors = ["Sermet Pekin <sermet.pekin@gmail.com>"]
 license = "MIT"
