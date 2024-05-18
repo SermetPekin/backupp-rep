@@ -1,12 +1,6 @@
 
 
-"""
---------------------------------------
-   Developer : Sermet Pekin
-    @ project Backup
-    @ 2022 January
---------------------------------------
-"""
+
 from backupp.backup_with_path import adres_ile_yedekle
 from backupp.file_checks import *
 # ------------------------------------************************************

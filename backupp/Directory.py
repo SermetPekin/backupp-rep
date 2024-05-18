@@ -1,10 +1,4 @@
-"""
---------------------------------------
-   Developer : Sermet Pekin
-    @ project Backup
-    @ 2022 January
---------------------------------------
-"""
+
 
 from .file_checks import FileChecks_for_Matlab_Projects, FileChecks
 from dataclasses import dataclass, field

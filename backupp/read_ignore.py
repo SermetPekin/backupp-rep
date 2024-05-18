@@ -1,11 +1,5 @@
 
-"""
---------------------------------------
-   Developer : Sermet Pekin
-    @ project Backup
-    @ 2022 January
---------------------------------------
-"""
+
 from pathlib import Path
 from gitignore_parser import parse_gitignore
 from abc import ABC, abstractmethod

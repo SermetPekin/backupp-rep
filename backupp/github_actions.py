@@ -1,11 +1,5 @@
 
-"""
---------------------------------------
-   Developer : Sermet Pekin
-    @ project Backup
-    @ 2022 January
---------------------------------------
-"""
+
 from pathlib import Path
 # from .menu import yedekle_this, yedekle_this_onayisteme
 from datetime import datetime

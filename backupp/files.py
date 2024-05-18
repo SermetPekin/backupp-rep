@@ -1,11 +1,5 @@
 
-"""
---------------------------------------
-   Developer : Sermet Pekin
-    @ project Backup
-    @ 2022 January
---------------------------------------
-"""
+
 import traceback
 from .colors import *
 import os

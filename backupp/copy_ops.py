@@ -1,10 +1,4 @@
-"""
---------------------------------------
-   Developer : Sermet Pekin
-    @ project Backup
-    @ 2022 January
---------------------------------------
-"""
+
 
 import shutil
 from datetime import datetime

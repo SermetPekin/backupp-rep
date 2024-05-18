@@ -1,11 +1,5 @@
 
-"""
---------------------------------------
-   Developer : Sermet Pekin
-    @ project Backup
-    @ 2022 January
---------------------------------------
-"""
+
 import string
 import random
 from pathlib import Path

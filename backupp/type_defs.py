@@ -1,11 +1,5 @@
 
-"""
---------------------------------------
-   Developer : Sermet Pekin
-    @ project Backup
-    @ 2022 January
---------------------------------------
-"""
+
 import typing as t
 from pathlib import Path
 from backupp.file_classes import FileItem

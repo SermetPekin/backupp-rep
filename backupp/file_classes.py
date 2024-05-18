@@ -1,11 +1,5 @@
 
-"""
---------------------------------------
-   Developer : Sermet Pekin
-    @ project Backup
-    @ 2022 January
---------------------------------------
-"""
+
 from dataclasses import dataclass
 from abc import ABC, abstractmethod
 from pathlib import Path

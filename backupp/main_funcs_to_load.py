@@ -1,11 +1,4 @@
 
-"""
---------------------------------------
-   Developer : Sermet Pekin
-    @ project Backup
-    @ 2022 January
---------------------------------------
-"""
 import sys
 from pathlib import Path
 from backupp.github_actions import GithubActions

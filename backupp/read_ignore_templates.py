@@ -1,13 +1,6 @@
 
 
 
-"""
---------------------------------------
-   Developer : Sermet Pekin
-    @ project Backup
-    @ 2022 January
---------------------------------------
-"""
 git_ignore_template_for_R = f"""
 __*/
 .idea/

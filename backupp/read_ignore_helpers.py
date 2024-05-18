@@ -1,12 +1,6 @@
 
 
-"""
---------------------------------------
-   Developer : Sermet Pekin
-    @ project Backup
-    @ 2022 January
---------------------------------------
-"""
+
 from pathlib import Path
 from .files import Read, ReadBytes, WriteBytes
 from .read_ignore_templates import git_ignore_template_for_R

@@ -1,12 +1,6 @@
 
 
-"""
---------------------------------------
-   Developer : Sermet Pekin
-    @ project Backup
-    @ 2022 January
---------------------------------------
-"""
+
 from abc import ABC, abstractmethod
 from .file_classes import FileItem
 # ******************************************

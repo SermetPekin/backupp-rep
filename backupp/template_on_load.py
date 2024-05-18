@@ -1,11 +1,5 @@
 
-"""
---------------------------------------
-   Developer : Sermet Pekin
-    @ project Backup
-    @ 2022 January
---------------------------------------
-"""
+
 from backupp.files import WriteBytes, ReadBytes
 from pathlib import Path
 def create_git_ignore_file_onload():

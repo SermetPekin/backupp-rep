@@ -1,11 +1,5 @@
 
-"""
---------------------------------------
-   Developer : Sermet Pekin
-    @ project Backup
-    @ 2022 January
---------------------------------------
-"""
+
 from pathlib import Path
 from backupp._options import set_backup_folder
 def get_parameters_from_console():
