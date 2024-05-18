@@ -1,53 +1,82 @@
+# backupp
 
 [![Python package](https://github.com/SermetPekin/backupp-rep/actions/workflows/python-package.yml/badge.svg)](https://github.com/SermetPekin/backupp-rep/actions/workflows/python-package.yml)
 
-### backupp
+**backupp** is a Python package that automates the backup of folders to a specified local or network destination. It intelligently utilizes or generates a `.gitignore` file to manage which files or folders should be ignored during the backup process.
 
-Back ups your folder to your preferred local or network destination reading or creating a gitignore file.
+## Installation
 
-### installation 
--U for the latest 
-    
-    pip install backupp -U         # or 
-    # pip3 install backupp -U  
+Install the latest version of backupp using pip:
 
-#### Usage from console (Win) / terminal on (linux / Mac)
+```bash
+pip install backupp -U  # Alternatively, you can use pip3
+```
 
-    $ backupp /some_folder/that_folder  my_backup_folder
+## Usage
 
-    $ backupp /some_folder/that_folder  path/to_my_backup_folder
+### Console (Windows) / Terminal (Linux/Mac)
 
-    # backup current folder
-    $ backupp .  path/to_my_backup_folder 
+To backup specific folders to a designated backup folder, use:
 
-    # backup parent folder
-    $ backupp ..  path/to_my_backup_folder 
+```bash
+backupp /path/to/source_folder /path/to/backup_folder
+```
 
-#### gitignore file 
-backupp package looks for a .gitignore file. If it does not exist it creates one for your folder. You may modify it to create rules which files/ folders to ignore just like git does. 
+Examples:
 
-#### setup global backup folder 
+- Backup a specific folder:
+  ```bash
+  backupp /some_folder/that_folder my_backup_folder
+  ```
 
-    backupp --setup my_favorite_backup_folder
+- Backup the current folder:
+  ```bash
+  backupp . path/to_my_backup_folder
+  ```
 
-    backupp some_folder 
+- Backup the parent folder:
+  ```bash
+  backupp .. path/to_my_backup_folder
+  ```
 
-#### check backup setup  
+## Handling .gitignore
 
-displays your current setup and preferences
+The **backupp** package searches for an existing `.gitignore` file in the source directory. If it doesn't find one, it will create a default `.gitignore` file. You can modify this file to customize which files or folders should be excluded from backups, similar to how Git uses `.gitignore`.
 
+## Setup Global Backup Folder
 
-    backupp --check 
+To set a default backup folder, which can be used for subsequent backup operations without specifying a path each time:
 
-
-#### backup with commit   
-
-similar to $ git add . ; git commit -m'Thisisacommitmessage' ; git push
-
-    # creates a Thisisacommitmessage folder and backups 
-    # your folders and files inside this new folder 
-    # this is helpful when you would like to create breakpoints 
-    backupp path/somepath/somefolder_commit_Thisisacommitmessage
-
+```bash
+backupp --setup /path/to/my_favorite_backup_folder
+```
+## Backup to favorite folder
 
 
+```bash
+backupp path/source/somefolder   
+```
+
+## Backup current folder to favorite backup folder 
+
+```bash
+backupp . 
+```
+
+
+## Check Backup Setup
+
+To display your current backup configuration and preferences:
+
+```bash
+backupp --check
+```
+
+## Backup with Commit
+
+This feature allows you to emulate a Git-like commit operation, where each backup is treated as a "commit":
+
+```bash
+# Backup with a commit message, creating a directory named after the commit message
+backupp /path/to/source_folder_commit_ThisIsACommitMessage
+```
